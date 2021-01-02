@@ -13,24 +13,24 @@ let main argv =
 
     //let error = Units.convertGramsToKilograms input
 
-    printfn "The Chevy Spark EV has %f Newton-meters of torque." output
-    printfn "The Chevy Spark EV has %f lb-ft of torque." backToinput
+    printfn "The Chevy Spark EV has %g Newton-meters of torque." output
+    printfn "The Chevy Spark EV has %g lb-ft of torque." backToinput
     printfn "\r\n\r\n"
 
 
     let mph = 90.0<Mile/Hr>
     let mps = convertMphToMps mph
     let backToMph = convertMpsToMph mps
-    printfn "The Chevy Spark EV has a max speed of %f mph." backToMph
-    printfn "The Chevy Spark EV has a max speed of %f meters per second." mps
+    printfn "The Chevy Spark EV has a max speed of %g mph." backToMph
+    printfn "The Chevy Spark EV has a max speed of %g meters per second." mps
 
     printfn "\r\n\r\n"
 
     let avgMph = 60.0<Mile/Hr>
     let avgMps = convertMphToMps avgMph
     let avgBackToMph = convertMpsToMph avgMps
-    printfn "Average highway speed is %f mph." avgBackToMph
-    printfn "Average highway speed is %f meters per second." avgMps
+    printfn "Average highway speed is %g mph." avgBackToMph
+    printfn "Average highway speed is %g meters per second." avgMps
 
     printfn "\r\n\r\n"
 
@@ -46,9 +46,9 @@ let main argv =
     let kw = 40.0<kW>
     let fastChargeTime : float<Hr> = Electric.getChargeTimeKw kw sparkCapacity
 
-    printfn "Level 2 charge time at %f volts and %f amps is %f hours." voltage amps chargeTime 
-    printfn "DC fast charge time at an average of %f kW is %f hours." kw fastChargeTime 
-    //printfn "240V with 16A for 1 Hr = %f kWh." Electric.charge
+    printfn "Level 2 charge time at %g volts and %g amps is %g hours." voltage amps chargeTime 
+    printfn "DC fast charge time at an average of %g kW is %g hours." kw fastChargeTime 
+    //printfn "240V with 16A for 1 Hr = %g kWh." Electric.charge
     printfn "\r\n\r\n"
 
     0 // return an integer exit code
