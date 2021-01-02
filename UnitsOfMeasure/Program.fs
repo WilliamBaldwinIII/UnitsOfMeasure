@@ -5,6 +5,11 @@ open Units
 open Electric
 open Microsoft.FSharp.Data.UnitSystems.SI.UnitNames
 
+let printLevelChargeTime level (volts : float<volt>) (amps : float<ampere>) (batteryCapacity : float<kW Hr>) =
+    let chargeTime : float<Hr> = Electric.getChargeTime volts amps batteryCapacity
+    printfn "Level %i charge time at %g volts and %g amps is %g hours." level volts amps chargeTime
+    ()
+
 [<EntryPoint>]
 let main argv =
     let input = 400.0<LbFt>
@@ -37,16 +42,14 @@ let main argv =
 
     // The Chevy Spark EV battery capacity is 19 kWh.
     let sparkCapacity = 19.0<kWh>
-    let voltage = 240.0<volt>
-    let amps = 16.0<ampere>
 
-    let chargeTime : float<Hr> = Electric.getChargeTime voltage amps sparkCapacity
 
+    printLevelChargeTime 2 240.0<volt> 16.0<ampere> sparkCapacity
+    printLevelChargeTime 1 120.0<volt> 12.0<ampere> sparkCapacity
+    printLevelChargeTime 1 120.0<volt> 8.0<ampere> sparkCapacity
 
     let kw = 40.0<kW>
     let fastChargeTime : float<Hr> = Electric.getChargeTimeKw kw sparkCapacity
-
-    printfn "Level 2 charge time at %g volts and %g amps is %g hours." voltage amps chargeTime 
     printfn "DC fast charge time at an average of %g kW is %g hours." kw fastChargeTime 
     //printfn "240V with 16A for 1 Hr = %g kWh." Electric.charge
     printfn "\r\n\r\n"
