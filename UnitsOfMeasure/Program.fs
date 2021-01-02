@@ -2,6 +2,8 @@
 
 open System
 open Units
+open Electric
+open Microsoft.FSharp.Data.UnitSystems.SI.UnitNames
 
 [<EntryPoint>]
 let main argv =
@@ -32,5 +34,21 @@ let main argv =
 
     printfn "\r\n\r\n"
 
+
+    // The Chevy Spark EV battery capacity is 19 kWh.
+    let sparkCapacity = 19.0<kWh>
+    let voltage = 240.0<volt>
+    let amps = 16.0<ampere>
+
+    let chargeTime : float<Hr> = Electric.getChargeTime voltage amps sparkCapacity
+
+
+    let kw = 40.0<kW>
+    let fastChargeTime : float<Hr> = Electric.getChargeTimeKw kw sparkCapacity
+
+    printfn "Level 2 charge time at %f volts and %f amps is %f hours." voltage amps chargeTime 
+    printfn "DC fast charge time at an average of %f kW is %f hours." kw fastChargeTime 
+    //printfn "240V with 16A for 1 Hr = %f kWh." Electric.charge
+    printfn "\r\n\r\n"
 
     0 // return an integer exit code

@@ -3,37 +3,37 @@
 
 // COURTESY OF https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/units-of-measure
 
-// Mass, grams.
+/// Mass, grams.
 [<Measure>] type g
-// Mass, kilograms.
+/// Mass, kilograms.
 [<Measure>] type kg
-// Weight, pounds.
+/// Weight, pounds.
 [<Measure>] type lb
 
-// Distance, meters.
+/// Distance, meters.
 [<Measure>] type m
-// Distance, cm
+/// Distance, cm
 [<Measure>] type cm
 
-// Distance, inches.
+/// Distance, inches.
 [<Measure>] type inch
-// Distance, feet
+/// Distance, feet
 [<Measure>] type ft
 
-// Time, seconds.
+/// Time, seconds.
 [<Measure>] type s
 
-// Force, Newtons.
+/// Force, Newtons.
 [<Measure>] type N = kg m / s^2
 
-// Pressure, bar.
+/// Pressure, bar.
 [<Measure>] type bar
-// Pressure, Pascals
+/// Pressure, Pascals
 [<Measure>] type Pa = N / m^2
 
-// Volume, milliliters.
+/// Volume, milliliters.
 [<Measure>] type ml
-// Volume, liters.
+/// Volume, liters.
 [<Measure>] type L
 
 // Define conversion constants.
@@ -56,20 +56,19 @@ let convertCentimetersToInches (x : float<cm>) = x / cmPerInch
 // MY STUFF
 
 
-// Torque, Newton-meter
+/// Torque, Newton-meter
 [<Measure>] type Nm = N m
 
-// Energy, Joules are equivalent to Newton-meters
-[<Measure>] type J = Nm
 
-// Torque, Pound foot
+
+/// Torque, Pound foot
 [<Measure>] type LbFt = lb ft
 
 
-// Distance, mile
+/// Distance, mile
 [<Measure>] type Mile
 
-// Time, hour
+/// Time, hour
 [<Measure>] type Hr
 
 let feetPerMile = 5280.0<ft/Mile>
