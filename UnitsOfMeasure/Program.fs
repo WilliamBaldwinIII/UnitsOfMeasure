@@ -54,4 +54,14 @@ let main argv =
     //printfn "240V with 16A for 1 Hr = %g kWh." Electric.charge
     printfn "\r\n\r\n"
 
+    let averageUsage = 4.0<Mile/kWh>
+    let milesPerCharge = averageUsage * sparkCapacity
+
+    printfn "The Chevy Spark EV can usually go about %g miles on a single charge." milesPerCharge
+
+
+
+    printfn "\r\n\r\n"
+
+
     0 // return an integer exit code
